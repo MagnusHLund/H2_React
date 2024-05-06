@@ -17,15 +17,19 @@ interface InfoBoxProps {
   personalDetails: personalDetails
   socialMedia: socialMedia
   AdditionalDetails: AdditionalDetails
+  className?: string
+  minWidth?: string
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({
   personalDetails,
   socialMedia,
   AdditionalDetails,
+  className,
+  minWidth = '25%',
 }) => {
   return (
-    <div className="info-box">
+    <div className={`info-box ${className}`} style={{ minWidth: minWidth }}>
       <div className="info-box--top">
         <Image
           src={personalDetails.imagePath}

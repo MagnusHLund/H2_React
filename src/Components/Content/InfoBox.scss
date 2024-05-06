@@ -2,6 +2,8 @@
   width: 25%;
   background-color: pink;
   position: fixed;
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
 
   &--top {
     display: flex;

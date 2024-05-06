@@ -1,9 +1,12 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+import LanguageSlice from './Slices/LanguageSlice'
 
-const rootReducer = combineReducers({})
+export interface RootState {
+  language: ReturnType<typeof LanguageSlice>
+}
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: { language: LanguageSlice },
 })
 
 export default store

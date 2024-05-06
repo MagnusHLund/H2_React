@@ -1,10 +1,14 @@
+import Box from '../Content/Box'
 import InfoBox, {
   AdditionalDetails,
   personalDetails,
   socialMedia,
 } from '../Content/InfoBox'
+import { useTranslation } from '../../Hooks/useTranslation'
 
 const HomeRoute: React.FC = () => {
+  const t = useTranslation()
+
   const infoBoxPersonalDetails: personalDetails = {
     name: 'Magnus H. Lund',
     profession: 'Data technician w/ specialty in programming, Apprentice',
@@ -25,12 +29,16 @@ const HomeRoute: React.FC = () => {
     },
   ]
   return (
-    <div>
+    <div className="home">
       <InfoBox
         personalDetails={infoBoxPersonalDetails}
         socialMedia={infoBoxSocialMedia}
         AdditionalDetails={infoBoxAdditionalDetails}
+        className="home__info-box"
       />
+      <Box title="About" className="home__content">
+        <p>{t('about')}</p>
+      </Box>
     </div>
   )
 }
