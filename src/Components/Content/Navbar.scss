@@ -1,0 +1,21 @@
+.navbar {
+  background-color: #f0f0f0;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-evenly;
+  padding: 5px;
+  &--link {
+    text-decoration: none;
+    display: grid;
+    &__image {
+      place-self: center;
+      filter: invert(360);
+      height: 30px;
+      width: auto;
+    }
+    &__title {
+      place-self: center;
+      color: black;
+    }
+  }
+}

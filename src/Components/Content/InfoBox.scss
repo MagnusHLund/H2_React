@@ -1,0 +1,53 @@
+.info-box {
+  width: 25%;
+  background-color: pink;
+  position: fixed;
+
+  &--top {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    &__image {
+      place-self: center;
+      height: 100px;
+      width: auto;
+      border: solid black 1px;
+    }
+    &__name {
+      place-self: center;
+    }
+    &__profession {
+      place-self: center;
+      font-size: 10px;
+      background-color: lightgray;
+      border-radius: 5px;
+      padding: 2px;
+      margin: 5px;
+      text-align: center;
+    }
+    &__social-media {
+      display: flex;
+      justify-content: center;
+      &--icon {
+        margin: 0 5px;
+        & :hover {
+          filter: invert(360);
+        }
+      }
+    }
+  }
+  &--bottom {
+    &__container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    &__image {
+      padding: 0 5px;
+    }
+    &__text {
+      font-size: 12px;
+    }
+  }
+}
