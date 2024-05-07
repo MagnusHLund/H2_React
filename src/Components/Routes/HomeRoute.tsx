@@ -12,7 +12,7 @@ const HomeRoute: React.FC = () => {
 
   const infoBoxPersonalDetails: personalDetails = {
     name: 'Magnus H. Lund',
-    profession: 'Data technician w/ specialty in programming, Apprentice',
+    profession: 'Data technician w/ specialty in programming, Student',
     imagePath: '/lectio.jpg',
   }
   const infoBoxSocialMedia: socialMedia = [
@@ -41,7 +41,13 @@ const HomeRoute: React.FC = () => {
         <Box title="About">
           <p>{t('about')}</p>
         </Box>
-        <Box title="What I do">
+        <Box title="What I do?">
+          <p>{t('about')}</p>
+        </Box>
+        <Box title="Jobs">
+          <p>{t('about')}</p>
+        </Box>
+        <Box title="Total visitors">
           <p>{t('about')}</p>
         </Box>
       </div>

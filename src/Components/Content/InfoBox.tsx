@@ -36,26 +36,28 @@ const InfoBox: React.FC<InfoBoxProps> = ({
           alt={personalDetails.name}
           className="info-box--top__image"
         />
-        <h2 className="info-box--top__name">{personalDetails.name}</h2>
-        <h4 className="info-box--top__profession">
-          {personalDetails.profession}
-        </h4>
-        <div className="info-box--top__social-media">
-          {socialMedia.map((media) => (
-            <a
-              key={media.link}
-              href={media.link}
-              target="blank"
-              className="info-box--top__social-media--icon"
-            >
-              <Image src={media.imagePath} alt={media.alt} />
-            </a>
-          ))}
+        <div className="info-box--top__text-container">
+          <h2 className="info-box--top__name">{personalDetails.name}</h2>
+          <h4 className="info-box--top__profession">
+            {personalDetails.profession}
+          </h4>
+          <div className="info-box--top__social-media">
+            {socialMedia.map((media) => (
+              <a
+                key={media.link}
+                href={media.link}
+                target="blank"
+                className="info-box--top__social-media--icon"
+              >
+                <Image src={media.imagePath} alt={media.alt} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className="info-box--bottom">
         {AdditionalDetails.map((detail) => (
-          <div key={detail.text} className="info-box--bottom__container">
+          <div key={detail.text} className="info-box--bottom__row">
             <Image
               src={detail.imagePath}
               alt={detail.alt}

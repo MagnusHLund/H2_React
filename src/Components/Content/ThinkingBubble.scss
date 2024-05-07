@@ -1,0 +1,47 @@
+.thinking-bubble {
+  margin-top: 10vh;
+  width: 90%;
+  max-width: 500px;
+  height: 15vh;
+  background: #eceff1;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    background: inherit;
+    border-radius: inherit;
+    border-radius: 50%;
+  }
+  &.big {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    &::after {
+      width: 35%;
+      height: 100%;
+      top: -260%;
+      left: 12%;
+    }
+    &::before {
+      width: 60%;
+      height: 175%;
+      top: -75%;
+      left: 30%;
+    }
+    &__title {
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &__child-container {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
