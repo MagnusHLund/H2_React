@@ -1,6 +1,13 @@
 .home {
-  &__info-box {
+  padding: 0 25px;
+  display: flex;
+  align-items: flex-start;
+  &__box--container {
+    display: flex;
+    flex-direction: column;
   }
-  &__content {
+
+  @media only screen and (max-width: 885px) {
+    flex-direction: column;
   }
 }

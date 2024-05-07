@@ -5,6 +5,7 @@ import InfoBox, {
   socialMedia,
 } from '../Content/InfoBox'
 import { useTranslation } from '../../Hooks/useTranslation'
+import './HomeRoute.scss'
 
 const HomeRoute: React.FC = () => {
   const t = useTranslation()
@@ -36,9 +37,14 @@ const HomeRoute: React.FC = () => {
         AdditionalDetails={infoBoxAdditionalDetails}
         className="home__info-box"
       />
-      <Box title="About" className="home__content">
-        <p>{t('about')}</p>
-      </Box>
+      <div className="home__box--container">
+        <Box title="About">
+          <p>{t('about')}</p>
+        </Box>
+        <Box title="What I do">
+          <p>{t('about')}</p>
+        </Box>
+      </div>
     </div>
   )
 }
