@@ -4,6 +4,10 @@
   list-style-type: none;
   justify-content: space-evenly;
   padding: 5px;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
   &--link {
     text-decoration: none;
     display: grid;

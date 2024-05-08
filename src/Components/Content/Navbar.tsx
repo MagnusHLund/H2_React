@@ -8,6 +8,7 @@ import {
 } from '../../Redux/Slices/LanguageSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../Redux/Store'
+import Button from '../Inputs/Button'
 
 export type navbarLinks = { title: string; route: string; image: string }[]
 
@@ -40,13 +41,13 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
         </NavLink>
       ))}
 
-      <button
+      <Button
         onClick={() => {
           dispatch(changeLanguage())
         }}
-      >
-        <Image src={`/${languageToShow}.png`} alt="Change language" />
-      </button>
+        imageSrc={`/Flags/${languageToShow}.png`}
+        imageAlt="Change language"
+      />
     </ul>
   )
 }

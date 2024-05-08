@@ -8,10 +8,10 @@ import ContactRoute from './Components/Routes/ContactRoute'
 
 function App() {
   const links: navbarLinks = [
-    { title: 'Home', route: 'home', image: '/Home.png' },
-    { title: 'Projects', route: 'projects', image: '/Projects.png' },
-    { title: 'Education', route: 'education', image: '/Education.png' },
-    { title: 'Contact', route: 'contact', image: '/Contact.png' },
+    { title: 'Home', route: 'home', image: '/Navbar/Home.png' },
+    { title: 'Projects', route: 'projects', image: '/Navbar/Projects.png' },
+    { title: 'Education', route: 'education', image: '/Navbar/Education.png' },
+    { title: 'Contact', route: 'contact', image: '/Navbar/Contact.png' },
   ]
 
   return (

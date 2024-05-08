@@ -1,3 +1,33 @@
 .projects {
-  padding: 25px;
+  padding: 10px;
+  background-color: #00ccff;
+  position: relative;
+  display: flex;
+
+  &--sun {
+    height: 250px;
+    width: auto;
+    position: fixed;
+    left: 25px;
+    top: 70px;
+  }
+
+  &__project-image {
+    width: 95%;
+    height: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__person-image {
+    position: fixed;
+    width: 25vw;
+    height: auto;
+    top: 55vh;
+    left: 15vw;
+    @media only screen and (max-width: 660px) {
+      display: none;
+    }
+  }
 }

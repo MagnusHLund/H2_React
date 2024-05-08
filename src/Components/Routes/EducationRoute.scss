@@ -1,12 +1,12 @@
 @use './../../App' as app;
 
-.home {
+.education {
   padding: 0 25px;
   display: flex;
   align-items: flex-start;
   height: 100%;
   min-height: 94vh;
-  background-image: url('/Background/Home.gif');
+  background-image: url('/Background/Blackboard.jpg');
   background-size: cover;
   &__box--container {
     display: flex;

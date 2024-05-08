@@ -5,15 +5,17 @@ import './ThinkingBubble.scss'
 interface ThinkingBubbleProps {
   className?: string
   children: ReactNode
-  title: string
+  title?: string
   isBig?: boolean
+  sideSpacing?: boolean
 }
 
 const ThinkingBubble: React.FC<ThinkingBubbleProps> = ({
   className = '',
   children,
-  title,
+  title = '',
   isBig = false,
+  sideSpacing = true,
 }) => {
   return (
     <div
@@ -22,8 +24,14 @@ const ThinkingBubble: React.FC<ThinkingBubbleProps> = ({
         small: !isBig,
       })}
     >
-      <p className="thinking-bubble__title">{title}</p>
-      <div className="thinking-bubble__child-container">{children}</div>
+      {title && <p className="thinking-bubble__title">{title}</p>}
+      <div
+        className={cn('thinking-bubble__child-container', {
+          sideSpacing: sideSpacing,
+        })}
+      >
+        {children}
+      </div>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import cn from 'classnames'
 import './Box.scss'
 
 interface BoxProps {
@@ -16,17 +15,9 @@ const Box: React.FC<BoxProps> = ({
   minWidth = '50%',
   children,
   title,
-  thinkingBubble = false,
-  smallThinkingBubble = false,
 }) => {
   return (
-    <div
-      className={cn(`box ${className}`, {
-        thinkingBubble: thinkingBubble,
-        smallThinkingBubble: smallThinkingBubble,
-      })}
-      style={{ minWidth: minWidth }}
-    >
+    <div className={`box ${className}`} style={{ minWidth: minWidth }}>
       <div className="box--title">
         <p className="box--title__text">{title}</p>
       </div>
