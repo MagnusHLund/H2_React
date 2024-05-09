@@ -1,16 +1,22 @@
 import { ReactNode } from 'react'
 import './Form.scss'
+import Button from '../Inputs/Button'
 
 interface FormProps {
   className?: string
   children: ReactNode
+  postcard?: boolean
 }
 
-const Form: React.FC<FormProps> = ({ className = '', children }) => {
+const Form: React.FC<FormProps> = ({
+  className = '',
+  children,
+  postcard = false,
+}) => {
   return (
     <form className={`form ${className}`}>
-      <div>{children}</div>
-      <input type="submit" />
+      <div className="form__child-container">{children}</div>
+      <Button type="submit" postcard={postcard} />
     </form>
   )
 }

@@ -47,6 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
         }}
         imageSrc={`/Flags/${languageToShow}.png`}
         imageAlt="Change language"
+        transparent={true}
       />
     </ul>
   )
