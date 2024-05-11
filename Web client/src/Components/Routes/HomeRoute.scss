@@ -1,19 +1,119 @@
 @use './../../App' as app;
 
 .home {
-  padding: 0 25px;
-  display: flex;
-  align-items: flex-start;
-  height: 100%;
-  min-height: 95vh;
-  background-image: url('/Background/Home.gif');
-  background-size: cover;
-  &__box--container {
+  .mailbox {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    max-height: 10vh;
+    height: 100%;
+    position: fixed;
+    top: 50vh;
+    left: 5vw;
+    &__container {
+      display: flex;
+      border: 1px solid black;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      max-width: 12vw;
+      width: 100%;
+      justify-content: stretch;
+      &--text {
+        display: flex;
+        flex-direction: column;
+        :first-child {
+          border-bottom: 1px solid black;
+        }
+      }
+      &--front {
+        border: 1px solid black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        max-height: 100%;
+        min-width: 2vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &__foot {
+      width: 1.5vw;
+      min-height: 15vh;
+      height: 100%;
+      display: flex;
+      &::before,
+      &::after {
+        content: '';
+        border: 1px solid black;
+        border-top: none;
+        width: 100%;
+        min-height: 15vh;
+        height: 100%;
+      }
+      &::before {
+        border-right: none;
+      }
+    }
   }
 
-  @media only screen and (max-width: app.$screen-width) {
+  .house {
+    display: flex;
     flex-direction: column;
+    position: fixed;
+    right: 5vw;
+    top: 30vh;
+    width: 50%;
+    max-height: 60vh;
+    &__roof {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      &--left {
+        height: 20vw;
+        width: 20vw;
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        transform: rotate(45deg) translateY(-34%) translateX(-21%);
+      }
+      &--right {
+        width: 10%;
+        border-bottom: solid black 1px;
+      }
+    }
+    &__wall {
+      display: flex;
+      width: 100%;
+      &--left,
+      &--right {
+        border: 1px solid black;
+        min-height: 50vh;
+        width: 100%;
+        content: '';
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      &--left {
+        width: 90%;
+      }
+    }
+    &__window {
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+      width: 10vw;
+      height: 10vh;
+      background-image: linear-gradient(#000000 1px, transparent 1px),
+        linear-gradient(to right, #000000 1px, white 1px);
+      background-size: 5.1vw 5.1vh;
+    }
+    &__door {
+      border: 1px solid black;
+      border-bottom: unset;
+      align-self: last baseline;
+      width: 35%;
+      height: 50%;
+      background-color: red;
+    }
   }
 }

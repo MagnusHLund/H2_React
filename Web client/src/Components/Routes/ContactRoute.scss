@@ -30,16 +30,21 @@
     &--email {
       width: 50%;
     }
-    &--sincerely {
+    &--text {
       font-family: 'Handwriting', sans-serif;
-      font-size: 2vw;
+      font-size: 2vh;
       margin-left: 1vw;
     }
 
     &--message,
     &--name,
     &--email {
-      background-color: beige;
+      &.post-card__form {
+        background-color: beige;
+      }
+      &.paper__form {
+        background-color: transparentize(white, $amount: 0.5);
+      }
       border-radius: 10px;
       color: black;
       padding: 5px;

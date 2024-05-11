@@ -22,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   imageAlt = '',
   className = '',
   type = 'button',
+  cursor = 'pointer',
   onClick,
 }) => {
   const fullClassName = cn(`${className} ${type}`, {
@@ -31,7 +32,11 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <>
       {type == 'button' && (
-        <button className={fullClassName} onClick={onClick}>
+        <button
+          className={fullClassName}
+          onClick={onClick}
+          style={{ cursor: cursor }}
+        >
           {imageSrc && <Image src={imageSrc} alt={imageAlt} />}
           {text && <p>{text}</p>}
         </button>

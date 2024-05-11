@@ -14,10 +14,10 @@ CREATE TABLE IF NOT EXISTS `Visitors` (
 
 CREATE TABLE IF NOT EXISTS 'Mails' (
     `mail_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `visitor_id` int(10) UNSIGNED NOT NULL,
-    `from` varchar(30) NOT NULL,
-    `email` varchar(320) NOT NULL,
-    `message` varchar(512) NOT NULL,
+    `visitor_id` INT(10) UNSIGNED NOT NULL,
+    `from` VARCHAR(30) NOT NULL,
+    `email` VARCHAR(320) NOT NULL,
+    `message` TEXT(1024) NOT NULL,
     `sent_at` DATETIME NOT NULL
 
     PRIMARY KEY (`mail_id`),
