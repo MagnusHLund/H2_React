@@ -1,11 +1,18 @@
 import cors from 'cors'
-import express from 'express'
+import { getAllowedCorsHosts } from '../Utils/constants.js'
 
-export function corsMiddleware() {
-  const app = express()
+export function corsMiddleware(app) {
+  const allowedHosts = getAllowedCorsHosts()
+
   app.use(
     cors({
-      origin: 'http://localhost:5173',
+      origin: (origin, callback) => {
+        if (!origin || allowedHosts.includes(origin)) {
+          callback(null, true)
+        } else {
+          callback(new Error('Not allowed by CORS'))
+        }
+      },
       optionsSuccessStatus: 200,
     })
   )

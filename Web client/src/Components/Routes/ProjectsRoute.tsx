@@ -75,7 +75,7 @@ const ProjectsRoute: React.FC = () => {
     },
   ]
 
-  const pageHeight = projects.length * 100
+  const pageHeight = (projects.length * 100) / 3
 
   return (
     <div className="projects route" style={{ height: `${pageHeight}vh` }}>

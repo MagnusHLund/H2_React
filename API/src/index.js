@@ -9,7 +9,7 @@ const PORT = 1408
 
 app.use(bodyParser.json())
 
-corsMiddleware()
+corsMiddleware(app)
 app.use(router)
 
 app.listen(PORT, () => {

@@ -1,10 +1,10 @@
 import express from 'express'
-import { newMessage } from '../Handlers/contactHandler.js'
+import { newMail } from '../Handlers/contactHandler.js'
 import { addVisitor } from '../Handlers/visitorHandler.js'
 
-const router = express.router()
+const router = express.Router()
 
-router.get('/contact/new', newMessage())
-router.get('visitor/add', addVisitor())
+router.post('/mail/new', newMail)
+router.post('/visitor/add', addVisitor)
 
 export default router

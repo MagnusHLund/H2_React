@@ -5,8 +5,16 @@ import HomeRoute from './Components/Routes/HomeRoute'
 import ProjectsRoute from './Components/Routes/ProjectsRoute'
 import EducationRoute from './Components/Routes/EducationRoute'
 import ContactRoute from './Components/Routes/ContactRoute'
+import { useEffect } from 'react'
+import { addVisitor } from './Utils/ApiCalls'
 
 function App() {
+  useEffect(() => {
+    addVisitor()
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Error:', error))
+  }, [])
+
   const links: navbarLinks = [
     { title: 'Home', route: 'home', image: '/Navbar/Home.png' },
     { title: 'Projects', route: 'projects', image: '/Navbar/Projects.png' },
