@@ -23,12 +23,20 @@ function connectToDatabase() {
  * @param {Array} args
  */
 export function callProcedure(procedureName, args) {
-  connectToDatabase()
-  const placeholders = args.map(() => '?').join(',')
-  connection.query(`CALL ${procedureName}(${placeholders})`, args, (error) => {
-    if (error) throw error
-    console.log('Stored procedure executed successfully.')
+  return new Promise((resolve, reject) => {
+    connectToDatabase()
+    const placeholders = args ? args.map(() => '?').join(',') : ''
+    connection.query(
+      `CALL ${procedureName}(${placeholders})`,
+      args,
+      (error, results) => {
+        if (error) {
+          reject(error)
+        } else {
+          resolve(results[0])
+        }
+        connection.end()
+      }
+    )
   })
-
-  connection.end()
 }

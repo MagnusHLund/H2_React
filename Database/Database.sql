@@ -46,3 +46,10 @@ BEGIN
     INSERT INTO Mails(visitor_id, `from`, email, message, sent_at) VALUES(visitor_id_in, from_in, email_in, message_in, NOW());
 END //
 DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE GetTotalVisitors()
+BEGIN
+    SELECT COUNT(*) AS TotalVisitors FROM Visitors;
+END //
+DELIMITER ;

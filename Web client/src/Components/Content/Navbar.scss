@@ -11,6 +11,12 @@
   &--link {
     text-decoration: none;
     display: grid;
+    padding: 0 1vh;
+    &:hover {
+      background: #0390fc;
+      border-radius: 1vh;
+      transition: all 0.5s ease-in-out;
+    }
     &__image {
       place-self: center;
       filter: invert(360);
@@ -20,6 +26,10 @@
     &__title {
       place-self: center;
       color: black;
+    }
+    &.active {
+      background: #0390fc;
+      border-radius: 1vh;
     }
   }
 }

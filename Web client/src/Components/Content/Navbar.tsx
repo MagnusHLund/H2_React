@@ -9,6 +9,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../Redux/Store'
 import Button from '../Inputs/Button'
+import cn from 'classnames'
+import { useState } from 'react'
 
 export type navbarLinks = { title: string; route: string; image: string }[]
 
@@ -18,6 +20,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ links }) => {
   const dispatch = useDispatch()
+  const [currentPage, setCurrentPage] = useState(location.href)
 
   const languageState: LanguageProps = useSelector(
     (state: RootState) => state.language
@@ -30,14 +33,21 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
 
   return (
     <ul className="navbar">
-      {links.map((links) => (
-        <NavLink to={links.route} className="navbar--link" key={links.title}>
+      {links.map((link) => (
+        <NavLink
+          to={link.route}
+          className={cn('navbar--link', {
+            active: currentPage.includes(link.route),
+          })}
+          onClick={() => setCurrentPage(link.route)}
+          key={link.title}
+        >
           <Image
-            src={links.image}
-            alt={`${links.title} icon`}
+            src={link.image}
+            alt={`${link.title} icon`}
             className="navbar--link__image"
           />
-          <p className="navbar--link__title">{links.title}</p>
+          <p className="navbar--link__title">{link.title}</p>
         </NavLink>
       ))}
 

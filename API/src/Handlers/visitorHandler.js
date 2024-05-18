@@ -1,7 +1,22 @@
 import { callProcedure } from '../Utils/database.js'
 
-export function addVisitor(req, res) {
-  // Stored procedure arguments [ip, last_visit]
-  callProcedure('InsertOrUpdateVisitor', [req.ip])
-  res.send('Received POST request')
+export async function addVisitor(req, res) {
+  try {
+    const ipAddress =
+      req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    // Stored procedure arguments [ip, last_visit]
+    await callProcedure('InsertOrUpdateVisitor', [ipAddress])
+    res.send('Received POST request')
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
+export async function getVisitorCount(req, res) {
+  try {
+    const response = await callProcedure('GetTotalVisitors')
+    res.send(response)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
 }
