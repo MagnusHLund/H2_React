@@ -1,119 +1,131 @@
 @use './../../App' as app;
 
+$home-background: linear-gradient(
+  45deg,
+  rgba(150, 150, 150, 1) 0%,
+  rgba(105, 105, 105, 1) 33%,
+  rgba(0, 0, 0, 1) 100%
+);
+
+$top-background: linear-gradient(
+  45deg,
+  rgba(243, 255, 0, 1) 0%,
+  rgba(31, 219, 115, 1) 33%,
+  rgba(0, 212, 255, 1) 100%
+);
+
+$bottom-background: linear-gradient(
+  90deg,
+  rgba(243, 255, 0, 1) 0%,
+  rgba(31, 219, 115, 1) 33%,
+  rgba(0, 212, 255, 1) 100%
+);
+
 .home {
-  .mailbox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 10vh;
-    height: 100%;
-    position: fixed;
-    top: 50vh;
-    left: 5vw;
-    &__container {
-      display: flex;
-      border: 1px solid black;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      max-width: 12vw;
-      width: 100%;
-      justify-content: stretch;
-      &--text {
-        display: flex;
-        flex-direction: column;
-        :first-child {
-          border-bottom: 1px solid black;
-        }
-      }
-      &--front {
-        border: 1px solid black;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        max-height: 100%;
-        min-width: 2vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background: $home-background;
+  min-height: 94vh;
+  &--top {
+    background: $top-background;
+    & > * {
+      width: 33%;
+    }
+    &--middle {
+      display: grid;
+      padding: auto 0;
+      &__image {
+        place-self: center;
+        height: auto;
+        width: 100%;
+        border-radius: 50%;
+        border: solid wheat 5px;
+        max-height: 30vh;
+        max-width: 30vh;
+        margin: 1vh 0;
       }
     }
-    &__foot {
-      width: 1.5vw;
-      min-height: 15vh;
-      height: 100%;
-      display: flex;
-      &::before,
-      &::after {
-        content: '';
-        border: 1px solid black;
-        border-top: none;
-        width: 100%;
-        min-height: 15vh;
-        height: 100%;
+    &--right {
+      &__details {
+        margin-top: 1vh;
       }
-      &::before {
-        border-right: none;
+      &__socials--container {
+        display: flex;
+        & > * {
+          margin-right: 1vw;
+          margin-top: 1vh;
+        }
       }
     }
   }
 
-  .house {
+  &--bottom {
+    background: $bottom-background;
+  }
+
+  & > * {
     display: flex;
-    flex-direction: column;
-    position: fixed;
-    right: 5vw;
-    top: 30vh;
-    width: 50%;
-    max-height: 60vh;
-    &__roof {
-      display: flex;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      &--left {
-        height: 20vw;
-        width: 20vw;
-        border-left: 1px solid black;
-        border-top: 1px solid black;
-        transform: rotate(45deg) translateY(-34%) translateX(-21%);
-      }
-      &--right {
-        width: 10%;
-        border-bottom: solid black 1px;
-      }
-    }
-    &__wall {
-      display: flex;
-      width: 100%;
-      &--left,
-      &--right {
-        border: 1px solid black;
-        min-height: 50vh;
+    border-radius: 25px;
+    margin: 5vh 5vw;
+    padding: 1vw;
+  }
+
+  @media (max-width: 1100px) {
+    &--top,
+    &--bottom {
+      flex-direction: column;
+      & > * {
         width: 100%;
-        content: '';
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+      }
+    }
+    &--bottom {
+      &--middle {
+        order: 3;
+      }
+      &--right {
+        order: 2;
       }
       &--left {
-        width: 90%;
+        order: 1;
       }
     }
-    &__window {
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-      width: 10vw;
-      height: 10vh;
-      background-image: linear-gradient(#000000 1px, transparent 1px),
-        linear-gradient(to right, #000000 1px, white 1px);
-      background-size: 5.1vw 5.1vh;
+
+    &--top {
+      &--middle {
+        order: 1;
+      }
+      &--right {
+        order: 3;
+      }
+      &--left {
+        order: 2;
+      }
+      &--right {
+        & * {
+          .text-panel__children {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
     }
-    &__door {
-      border: 1px solid black;
-      border-bottom: unset;
-      align-self: last baseline;
-      width: 35%;
-      height: 50%;
-      background-color: red;
+  }
+
+  @media (max-width: 1000px) {
+    &--top {
+      &--right {
+        & * {
+          .text-panel__children {
+            flex-direction: column;
+            text-align: center;
+          }
+        }
+        &__socials {
+          &--container {
+            justify-content: center;
+          }
+        }
+      }
     }
   }
 }

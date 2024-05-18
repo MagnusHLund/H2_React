@@ -65,7 +65,7 @@ const ProjectsRoute: React.FC = () => {
       title: 'CV website',
       text: t('about'),
       link: 'https://github.com/MagnusHLund/H2_React_Resume_website',
-      imagePath: '/Me/lectio.jpg',
+      imagePath: '/Me/Home.jpg',
     },
     {
       title: 'A lot more!',

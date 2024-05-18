@@ -1,47 +1,79 @@
-import { useState } from 'react'
+import React from 'react'
 import { useTranslation } from '../../Hooks/useTranslation'
+import TextPanel from '../Content/TextPanel'
+import Image from '../Content/Image'
+import calculateAge from '../../Utils/CalculateAge'
 import './HomeRoute.scss'
-import Button from '../Inputs/Button'
-
-type homeStages = 'house' | 'apartment' | 'kitchen' | 'living-room' | 'bedroom'
+import personalDetails from './../../Component data/PersonalDetails.json'
+import socialMedia from './../../Component data/SocialMedia.json'
 
 const HomeRoute: React.FC = () => {
-  const [homeStage, setHomeStage] = useState<homeStages>('house')
   const t = useTranslation()
 
-  const house = (
-    <div>
-      <div className="mailbox">
-        <div className="mailbox__container">
-          <div className="mailbox__container--front">19</div>
-          <div className="mailbox__container--text">
-            <p>Magnus H. Lund</p>
-            <p>Amager, Denmark</p>
-          </div>
+  const age = calculateAge(personalDetails[0].Birthday)
+
+  return (
+    <div className="home route">
+      <div className="home--top">
+        <div className="home--top--left">
+          <TextPanel title="About me">
+            <p>{t('about')}</p>
+          </TextPanel>
         </div>
-        <div className="mailbox__foot" />
+        <div className="home--top--middle">
+          <Image
+            src="/Me/Home.jpg"
+            alt=""
+            className="home--top--middle__image"
+          />
+        </div>
+        <div className="home--top--right">
+          <TextPanel title="Details">
+            <div className="home--top--right__details">
+              <b>Name:</b>
+              <p>{personalDetails[0].name}</p>
+            </div>
+            <div className="home--top--right__details">
+              <b>Age:</b>
+              <p>{age}</p>
+            </div>
+            <div className="home--top--right__details">
+              <b>Location:</b>
+              <p>Amager, Denmark</p>
+            </div>
+            <div className="home--top--right__details">
+              <b>Social media:</b>
+              {socialMedia.map((platform, index) => (
+                <div
+                  key={index}
+                  className="home--top--right__socials--container"
+                >
+                  {Object.entries(platform).map(([key, value]) => (
+                    <div key={key}>
+                      <a href={value.Link} target="blank">
+                        <Image src={value.ImagePath} alt={value.Name} />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </TextPanel>
+        </div>
       </div>
-      <div className="house">
-        <div className="house__roof">
-          <div className="house__roof--left"></div>
-          <div className="house__roof--right">
-            <div className="house__roof--chimney" />
-          </div>
+      <div className="home--bottom">
+        <div className="home--bottom--left">
+          <TextPanel title="What I do">{t('about')}</TextPanel>
         </div>
-        <div className="house__wall">
-          <div className="house__wall--left">
-            <Button className="house__door" transparent={true} />
-          </div>
-          <div className="house__wall--right">
-            <div className="house__window" />
-            <div className="house__window" />
-          </div>
+        <div className="home--bottom--middle">
+          <TextPanel title="Total visitors">{t('about')}</TextPanel>
+        </div>
+        <div className="home--bottom--right">
+          <TextPanel title="Jobs">{t('about')}</TextPanel>
         </div>
       </div>
     </div>
   )
-
-  return <div className="home route">{house}</div>
 }
 
 export default HomeRoute

@@ -1,6 +1,13 @@
+$gradientBackground: linear-gradient(
+  45deg,
+  rgba(255, 71, 71, 1) 0%,
+  rgba(255, 156, 0, 1) 50%,
+  rgba(255, 246, 0, 1) 100%
+);
+
 .contact {
   padding: 10px;
-  background-color: #ffa500;
+  background: $gradientBackground;
   position: relative;
   display: flex;
   height: 100%;

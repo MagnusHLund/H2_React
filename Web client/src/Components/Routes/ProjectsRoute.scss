@@ -1,6 +1,13 @@
+$gradientBackground: linear-gradient(
+  45deg,
+  rgba(81, 238, 255, 1) 0%,
+  rgba(0, 204, 255, 1) 50%,
+  rgba(0, 166, 255, 1) 100%
+);
+
 .projects {
   padding: 10px;
-  background-color: #00ccff;
+  background: $gradientBackground;
   position: relative;
   display: flex;
 

@@ -8,7 +8,7 @@ interface ImageProps {
 
 const Image: React.FC<ImageProps> = ({ alt, src, className = '' }) => {
   return (
-    <img alt={alt} src={src} className={`image ${className}`} loading="eager" />
+    <img alt={alt} src={src} className={`image ${className}`} loading="lazy" />
   )
 }
 
