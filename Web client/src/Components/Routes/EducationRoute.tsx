@@ -3,6 +3,7 @@ import { useTranslation } from '../../Hooks/useTranslation'
 import Book from '../Content/Book'
 import Box from '../Content/Box'
 import Paragraph from '../Content/Paragraph'
+import List from '../Content/List'
 
 const EducationRoute: React.FC = () => {
   const t = useTranslation()
@@ -17,15 +18,17 @@ const EducationRoute: React.FC = () => {
         >
           <div>
             <h4>{t('h1.grades')}</h4>
-            <ul>
-              <li>(6225) Computerteknologi: 7</li>
-              <li>(16476) Client-side programmering: 12</li>
-              <li>(6230) Database server: 10</li>
-              <li>(16474) Database programmering: 10</li>
-              <li>(6222) Serveradministration og sikkerhed: 7</li>
-              <li>(16472) grundlæggende programmering: 12</li>
-              <li>(16471) Objekt-orienteret programmering: 12</li>
-            </ul>
+            <List
+              listOptions={[
+                t('h1.client-side'),
+                t('h1.OOP'),
+                t('h1.Basic'),
+                t('h1.database programming'),
+                t('h1.database server'),
+                t('h1.server admin and security'),
+                t('h1.computer technology'),
+              ]}
+            ></List>
           </div>
           <div>
             <br />

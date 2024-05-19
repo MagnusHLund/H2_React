@@ -12,6 +12,19 @@ app.use(bodyParser.json())
 corsMiddleware(app)
 app.use(router)
 
-app.listen(PORT, () => {
+// Global error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+
+const server = app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`)
+})
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err, promise) => {
+  console.log(`Error: ${err.message}`)
+  // Close server & exit process
+  server.close(() => process.exit(1))
 })

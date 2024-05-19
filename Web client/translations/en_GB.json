@@ -2,7 +2,6 @@
   "about": {
     "about me": "About me",
     "me": "I am Magnus, a technology enthusiast who embarked on my journey into the tech world through gaming. However, my passion has evolved and I now find myself more engrossed in coding than gaming.",
-    "diagnosis": "In 2015, I was diagnosed with ADD, a variant of ADHD without the hyperactivity. While it doesn't significantly impact my daily life, I believe it's an important aspect of my personal journey to acknowledge",
     "server": "I manage a variety of services from my home server, including hosting this website, JellyFin, NextCloud, and more. My server operates on Unraid, a Debian-based Linux operating system.",
     "programming": "My programming journey began in 2020 with game development in Unity. Since then, I've expanded my skill set to include technologies such as React TS, C#, PHP, and more.",
     "dedicated": "I am a highly dedicated individual who believes in the importance of setting and achieving goals. My personal goal is to code every day, a commitment reflected in my months-long GitHub commit streak."
@@ -58,13 +57,13 @@
   "h1": {
     "title": "H1 grades",
     "grades": "Grades (ECTS):",
-    "computer technology": "(6225) Computer technology: C",
     "client-side": "(16476) Client-side programming: A",
+    "OOP": "(16471) Object-oriented programming: A",
+    "Basic": "(16472) Basic programming: A",
     "database server": "(6230) Database server: B",
     "database programming": "(16474) Database programming: B",
     "server admin and security": "(6222) Server administration and security: C",
-    "Basic": "(16472) Basic programming: A",
-    "OOP": "Object-oriented programming: A",
+    "computer technology": "(6225) Computer technology: C",
     "teacher": "Message from my primary teacher:",
     "teachers message": "It is a great pleasure to have Magnus on the team. He works intensely with the subject, is constantly curious and asks many questions. He is always challenging himself. As a colleague, Magnus is excellent, and he is always ready to help others as needed."
   },

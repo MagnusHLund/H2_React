@@ -1,6 +1,6 @@
 import { callProcedure } from '../Utils/database.js'
 
-export async function addVisitor(req, res) {
+export async function handleAddVisitorRequest(req, res) {
   try {
     const ipAddress =
       req.headers['x-forwarded-for'] || req.connection.remoteAddress
@@ -12,7 +12,7 @@ export async function addVisitor(req, res) {
   }
 }
 
-export async function getVisitorCount(req, res) {
+export async function handleGetVisitorCountRequest(req, res) {
   try {
     const response = await callProcedure('GetTotalVisitors')
     res.send(response)

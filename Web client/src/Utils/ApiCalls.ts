@@ -6,24 +6,28 @@ export const addVisitor = async () => {
       'https://api.magnuslund.com/visitor/add',
       {}
     )
+    if (response.status !== 200) {
+      throw new Error(`Failed to add visitor: ${response.status}`)
+    }
     return response.data
   } catch (error) {
     console.error(`An error has occurred: ${error}`)
-    throw error
+    throw new Error(`Failed to add visitor: ${error.message}`)
   }
 }
-
-export const sendEmail = async () => {}
 
 export const getVisitor = async (): Promise<number> => {
   try {
     const response = await axios.get(
       'https://api.magnuslund.com/visitor/getCount'
     )
+    if (response.status !== 200) {
+      throw new Error(`Failed to get visitor count: ${response.status}`)
+    }
     const visitorNumber: number = response.data[0].TotalVisitors
     return visitorNumber
   } catch (error) {
     console.error(`An error has occurred: ${error}`)
-    throw error
+    throw new Error(`Failed to get visitor count: ${error.message}`)
   }
 }

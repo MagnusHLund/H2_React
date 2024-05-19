@@ -1,20 +1,16 @@
 import mysql from 'mysql'
 import { getDatabaseInfo } from './constants.js'
 
-let connection = null
+let pool = null
 
 function connectToDatabase() {
   const databaseInfo = getDatabaseInfo()
-  connection = mysql.createConnection({
+  pool = mysql.createPool({
+    connectionLimit: 5,
     host: databaseInfo['HOST'],
     user: databaseInfo['USER'],
     password: databaseInfo['PASS'],
     database: databaseInfo['NAME'],
-  })
-
-  connection.connect((error) => {
-    if (error) throw error
-    console.log('Connected to the database.')
   })
 }
 

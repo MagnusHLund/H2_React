@@ -10,7 +10,7 @@ class VisitorCount extends React.Component<unknown, State> {
   constructor(props: unknown) {
     super(props)
     this.state = {
-      visitorNumber: null, // Initialize with a default value
+      visitorNumber: null,
     }
   }
 
