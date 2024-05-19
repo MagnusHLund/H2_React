@@ -3,6 +3,7 @@ import './Button.scss'
 import { StandardInputProps } from './StandardInputProps'
 import cn from 'classnames'
 import Image from './../Content/Image'
+import { useTranslation } from '../../Hooks/useTranslation'
 
 interface ButtonProps extends StandardInputProps {
   transparent?: boolean
@@ -25,6 +26,8 @@ const Button: React.FC<ButtonProps> = ({
   cursor = 'pointer',
   onClick,
 }) => {
+  const t = useTranslation()
+
   const fullClassName = cn(`${className} ${type}`, {
     transparent: transparent,
     card: postcard,
@@ -37,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
           onClick={onClick}
           style={{ cursor: cursor }}
         >
-          {imageSrc && <Image src={imageSrc} alt={imageAlt} />}
+          {imageSrc && <Image src={imageSrc} alt={imageAlt} loading="eager" />}
           {text && <p>{text}</p>}
         </button>
       )}
@@ -46,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({
           type="submit"
           className={fullClassName}
           onClick={onClick}
-          value={'Send message'}
+          value={t(text)}
         />
       )}
     </>

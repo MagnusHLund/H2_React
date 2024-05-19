@@ -3,10 +3,11 @@ import { useTranslation } from '../../Hooks/useTranslation'
 import ThinkingBubble from '../Content/ThinkingBubble'
 import Image from './../Content/Image'
 import './ProjectsRoute.scss'
+import Paragraph from '../Content/Paragraph'
 
 type projects = {
   title: string
-  text: string
+  texts: string[]
   link: string
   imagePath: string
 }[]
@@ -31,7 +32,6 @@ const ProjectsRoute: React.FC = () => {
       if (scrollPosition <= 0 || isNaN(calculateProjectToShow)) {
         calculateProjectToShow = 0
       }
-      console.log(calculateProjectToShow)
       setProjectToShow(calculateProjectToShow)
     }
 
@@ -45,31 +45,47 @@ const ProjectsRoute: React.FC = () => {
   const projects: projects = [
     {
       title: 'LundBot69',
-      text: t('about'),
+      texts: [
+        t('lundbot69.achieved'),
+        t('lundbot69.purpose'),
+        t('lundbot69.fact'),
+      ],
       link: 'https://github.com/MagnusHLund/LundBot69_Twitch',
       imagePath: '/Projects/LundBot69.png',
     },
     {
       title: 'Frogo restaurant',
-      text: t('about'),
+      texts: [
+        t('frogo restaurant.achieved'),
+        t('frogo restaurant.purpose'),
+        t('frogo restaurant.fact'),
+      ],
       link: 'https://magnuslund.itch.io/frogo-restaurant',
       imagePath: '/Projects/FrogoRestaurant.png',
     },
     {
       title: 'Temporary storage',
-      text: t('about'),
+      texts: [
+        t('temporary storage.achieved'),
+        t('temporary storage.purpose'),
+        t('temporary storage.fact'),
+      ],
       link: 'https://github.com/MagnusHLund/Temporary_storage',
       imagePath: '/Projects/TempStorage.png',
     },
     {
-      title: 'CV website',
-      text: t('about'),
+      title: 'Resume website',
+      texts: [
+        t('resume website.achieved'),
+        t('resume website.purpose'),
+        t('resume website.fact'),
+      ],
       link: 'https://github.com/MagnusHLund/H2_React_Resume_website',
       imagePath: '/Me/Home.jpg',
     },
     {
       title: 'A lot more!',
-      text: t('about'),
+      texts: [t('more.achieved'), t('more.purpose'), t('more.fact')],
       link: 'https://github.com/MagnusHLund',
       imagePath: '/Social media/Github.png',
     },
@@ -89,7 +105,7 @@ const ProjectsRoute: React.FC = () => {
         isBig={true}
         className="projects__main-content"
       >
-        {t('about')}
+        <Paragraph texts={projects[projectToShow].texts} />
       </ThinkingBubble>
 
       <ThinkingBubble sideSpacing={false}>

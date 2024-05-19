@@ -4,11 +4,13 @@ import PostCard from '../Content/Postcard'
 import TextInput from '../Inputs/TextInput'
 import './ContactRoute.scss'
 import Paper from '../Content/Paper'
+import { useTranslation } from '../../Hooks/useTranslation'
 
 type formType = 'post-card__form' | 'paper__form'
 
 const ContactRoute: React.FC = () => {
   const [formType, setFormType] = useState<formType>('post-card__form')
+  const t = useTranslation()
 
   useEffect(() => {
     const handleResize = () =>
@@ -22,24 +24,22 @@ const ContactRoute: React.FC = () => {
   })
 
   const form = (
-    <Form
-      className="contact__form"
-      postcard={formType == 'post-card__form'}
-      paper={formType == 'paper__form'}
-    >
-      <p className={`contact__form--text ${formType}`}>Hello Magnus,</p>
+    <Form className="contact__form" submitButtonText="contact.send">
+      <p className={`contact__form--text ${formType}`}>{t('contact.hello')}</p>
       <TextInput
-        placeholder="Message"
+        placeholder={t('contact.message')}
         className={`contact__form--message ${formType}`}
         multiLine={true}
       />
-      <p className={`contact__form--text ${formType}`}>Sincerely</p>
+      <p className={`contact__form--text ${formType}`}>
+        {t('contact.sincerely')}
+      </p>
       <TextInput
-        placeholder="Your name"
+        placeholder={t('contact.your name')}
         className={`contact__form--name ${formType}`}
       />
       <TextInput
-        placeholder="Your email"
+        placeholder={t('contact.your email')}
         type="email"
         className={`contact__form--email ${formType}`}
       />
@@ -52,7 +52,7 @@ const ContactRoute: React.FC = () => {
         <PostCard
           recipientName="Magnus Herringe Lund"
           recipientAddress="Amager, 2300"
-          recipientCountry="Denmark"
+          recipientCountry={t('contact.denmark')}
         >
           {form}
         </PostCard>

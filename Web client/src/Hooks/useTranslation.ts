@@ -4,7 +4,7 @@ import englishTranslation from '../../translations/en_GB.json'
 import { RootState } from './../Redux/Store'
 import { Language, LanguageProps } from '../Redux/Slices/LanguageSlice'
 
-type Translation = { [key: string]: string }
+type Translation = { [key: string]: string | Translation }
 
 // This represents a mapping from Language to Translation.
 type Translations = { [key in Language]: Translation }
@@ -38,5 +38,15 @@ export const useTranslation = () => {
 
   // Return a function that takes a translation key and returns the corresponding translation.
   // This function can be used in your components to get the correct translation for a given key.
-  return (key: string) => currentTranslation[key]
+  return (key: string) => {
+    const parts = key.split('.')
+    let result: string | Translation = currentTranslation
+    for (const part of parts) {
+      if (typeof result === 'string') {
+        return 'undefined'
+      }
+      result = result[part]
+    }
+    return result as string
+  }
 }

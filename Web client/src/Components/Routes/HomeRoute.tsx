@@ -6,6 +6,8 @@ import calculateAge from '../../Utils/CalculateAge'
 import './HomeRoute.scss'
 import personalDetails from './../../Component data/PersonalDetails.json'
 import socialMedia from './../../Component data/SocialMedia.json'
+import Paragraph from '../Content/Paragraph'
+import VisitorCount from '../Content/VisitorCount'
 
 const HomeRoute: React.FC = () => {
   const t = useTranslation()
@@ -16,8 +18,16 @@ const HomeRoute: React.FC = () => {
     <div className="home route">
       <div className="home--top">
         <div className="home--top--left">
-          <TextPanel title="About me">
-            <p>{t('about')}</p>
+          <TextPanel title={t('about.about me')}>
+            <Paragraph
+              texts={[
+                t('about.me'),
+                t('about.diagnosis'),
+                t('about.server'),
+                t('about.programming'),
+                t('about.dedicated'),
+              ]}
+            />
           </TextPanel>
         </div>
         <div className="home--top--middle">
@@ -28,21 +38,21 @@ const HomeRoute: React.FC = () => {
           />
         </div>
         <div className="home--top--right">
-          <TextPanel title="Details">
+          <TextPanel title={t('details.details')}>
             <div className="home--top--right__details">
-              <b>Name:</b>
+              <b>{t('details.name')}</b>
               <p>{personalDetails[0].name}</p>
             </div>
             <div className="home--top--right__details">
-              <b>Age:</b>
+              <b>{t('details.age')}</b>
               <p>{age}</p>
             </div>
             <div className="home--top--right__details">
-              <b>Location:</b>
-              <p>Amager, Denmark</p>
+              <b>{t('details.home')}</b>
+              <p>{t('details.location')}</p>
             </div>
             <div className="home--top--right__details">
-              <b>Social media:</b>
+              <b>{t('details.social media')}</b>
               {socialMedia.map((platform, index) => (
                 <div
                   key={index}
@@ -63,13 +73,29 @@ const HomeRoute: React.FC = () => {
       </div>
       <div className="home--bottom">
         <div className="home--bottom--left">
-          <TextPanel title="What I do">{t('about')}</TextPanel>
+          <TextPanel title={t('what i do.what i do')}>
+            <Paragraph
+              texts={[
+                t('what i do.free time'),
+                t('what i do.hardware'),
+                t('what i do.designing'),
+              ]}
+            />
+          </TextPanel>
         </div>
         <div className="home--bottom--middle">
-          <TextPanel title="Total visitors">{t('about')}</TextPanel>
+          <TextPanel
+            title={t('total visitors.total visitors')}
+            centerChildren={true}
+          >
+            <VisitorCount />
+            {t('total visitors.based on')}
+          </TextPanel>
         </div>
         <div className="home--bottom--right">
-          <TextPanel title="Jobs">{t('about')}</TextPanel>
+          <TextPanel title={t('jobs.jobs')}>
+            <Paragraph texts={[t('jobs.current'), t('jobs.swiipe')]} />
+          </TextPanel>
         </div>
       </div>
     </div>

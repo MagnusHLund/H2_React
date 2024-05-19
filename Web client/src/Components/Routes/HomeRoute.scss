@@ -65,6 +65,12 @@ $bottom-background: linear-gradient(
 
   &--bottom {
     background: $bottom-background;
+    & > * {
+      width: 100%;
+    }
+    &--middle {
+      align-items: center;
+    }
   }
 
   & > * {

@@ -24,6 +24,11 @@ const Book: React.FC<BookProps> = ({
           alt="ZBC logo"
           className="book__cover--image"
         />
+        <Image
+          src="/School/ZBC.png"
+          alt="ZBC logo"
+          className="book__cover--backside--image"
+        />
       </div>
       <div className="book__content">
         <h1 className="book__content--header">{PageHeader}</h1>

@@ -5,20 +5,18 @@ import Button from '../Inputs/Button'
 interface FormProps {
   className?: string
   children: ReactNode
-  postcard?: boolean
-  paper?: boolean
+  submitButtonText?: string
 }
 
 const Form: React.FC<FormProps> = ({
   className = '',
   children,
-  postcard = false,
-  paper = false,
+  submitButtonText = '',
 }) => {
   return (
     <form className={`form ${className}`}>
       <div className="form__child-container">{children}</div>
-      <Button type="submit" />
+      <Button type="submit" text={submitButtonText} />
     </form>
   )
 }

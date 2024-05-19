@@ -2,6 +2,7 @@ import './EducationRoute.scss'
 import { useTranslation } from '../../Hooks/useTranslation'
 import Book from '../Content/Book'
 import Box from '../Content/Box'
+import Paragraph from '../Content/Paragraph'
 
 const EducationRoute: React.FC = () => {
   const t = useTranslation()
@@ -10,12 +11,12 @@ const EducationRoute: React.FC = () => {
     <div className="education route">
       <div className="education__books--container">
         <Book
-          BookTitle="H1 grades"
-          PageHeader="H1 grades"
+          BookTitle={t('h1.title')}
+          PageHeader={t('h1.title')}
           className="education__book"
         >
           <div>
-            <h4>Grades:</h4>
+            <h4>{t('h1.grades')}</h4>
             <ul>
               <li>(6225) Computerteknologi: 7</li>
               <li>(16476) Client-side programmering: 12</li>
@@ -28,18 +29,19 @@ const EducationRoute: React.FC = () => {
           </div>
           <div>
             <br />
-            <h4>Message from the primary teacher:</h4>
-            <p>
-              Det er en stor glæde at have Magnus på holdet. Han arbjeder
-              intenst med faget, er konstant nysgerrig og stiller mange
-              spørgsmål. Han udforder hele tiden sig selv. Som kollega er Magnus
-              fremragende, og han er altid parat til at hjælpe andre efter
-              behov.
-            </p>
+            <h4>{t('h1.teacher')}</h4>
+            <p>{t('h1.teachers message')}</p>
           </div>
         </Book>
       </div>
-      <Box title="Upcoming school periods">t</Box>
+      <div>
+        <Box title={t('zbc.current education')}>
+          <Paragraph texts={[t('zbc.explanation'), t('zbc.periods')]} />
+        </Box>
+        <Box title={t('attended schools.attended')}>
+          {t('attended schools.boarding school')}
+        </Box>
+      </div>
     </div>
   )
 }

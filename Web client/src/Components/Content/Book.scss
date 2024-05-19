@@ -23,12 +23,14 @@
     transform-style: preserve-3d;
     transition: all 1s ease;
     color: white;
+    display: grid;
     &--title {
       position: fixed;
       height: auto;
       width: 100%;
       text-align: center;
       padding-top: 5vh;
+      backface-visibility: hidden;
     }
     &--image {
       position: fixed;
@@ -36,6 +38,17 @@
       bottom: 1vh;
       height: auto;
       width: 30%;
+      backface-visibility: hidden;
+    }
+    &--backside {
+      &--image {
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        position: fixed;
+        height: auto;
+        width: 10vw;
+        place-self: center;
+      }
     }
   }
   &__content {
@@ -57,6 +70,7 @@
     &--children {
       position: fixed;
       bottom: 5vh;
+      font-size: 13px;
     }
   }
 

@@ -7,13 +7,16 @@ import EducationRoute from './Components/Routes/EducationRoute'
 import ContactRoute from './Components/Routes/ContactRoute'
 import { useEffect } from 'react'
 import { addVisitor } from './Utils/ApiCalls'
+import useHelmet from './Hooks/useHelmet'
 
 function App() {
   useEffect(() => {
     addVisitor()
       .then((data) => console.log(data))
       .catch((error) => console.error('Error:', error))
-  }, [])
+  })
+
+  useHelmet()
 
   const links: navbarLinks = [
     { title: 'Home', route: 'home', image: '/Navbar/Home.png' },
